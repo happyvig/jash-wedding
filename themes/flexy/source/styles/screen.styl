@@ -270,9 +270,9 @@ main
   // Background and text flow
   // background $background-color
   // background-image linear-gradient(8deg, hsl(220, 100%, 12%), hsl(220, 40%, 4%) 50%)
-  background #ececec //#000f1a
-  height 100vh
-  color #000
+  background #000f1a
+  height 100%
+  color #eee
   flex 1
   hypens auto
   overflow-x hidden
@@ -283,6 +283,17 @@ main
   // Disabled
   .disabled
     opacity: 0.65; 
+  .space
+    animation slide 8s linear infinite
+    background-image url('../images/stars.svg')
+    background-position center center
+    background-size 240px
+    height 150% !important
+    left 0
+    position absolute
+    top 0
+    width 400%
+    z-index 1   
   // Links to articles
   a.article
     color $body-color
@@ -320,6 +331,7 @@ main
     border 2px dashed #aaa !important;
     padding 3px;
     border-radius 4px;
+    z-index: 10
 
   // Article list
   article.item
@@ -355,6 +367,8 @@ main
   // Full article
   article.full
     padding-bottom 20px
+    z-index: 10;
+    position: relative;
     h2
       margin 0
     ul
@@ -878,6 +892,7 @@ figure.highlight
       overflow hidden
       text-align right
       padding 40px
+      height 100%
 
       img
         margin 0 -32px 0 0
@@ -896,6 +911,8 @@ figure.highlight
     main
       flex 2
       padding 40px
+      .space
+        height 100% !important
       form
         .form-column
           input[type="name"]
