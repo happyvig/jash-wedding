@@ -1,0 +1,15 @@
+//- index page
+
+if is_home()
+  h4.page-title 
+
+  article.full
+    h1(itemprop='headline')= page.title
+    
+    //- page content to be filled in here
+    
+    p.disabled << Site is under construction >>
+
+  
+  footer(itemscope, itemtype='https://schema.org/WPFooter')
+    include _footer
