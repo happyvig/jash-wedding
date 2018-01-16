@@ -4,11 +4,18 @@ if is_home()
   h4.page-title 
 
   article.full
-    h1(itemprop='headline')= page.title
-    
+
     //- page content to be filled in here
-    
-    p.disabled << Site is under construction >>
+    div(class='venue')
+      h6 Venue
+      p VRG Thirumana Mahal, Edayarpalayam, Coimbatore
+      div
+        iframe(class='venue-map', width="660", height="371", frameborder="0", style="border:0", src=config.venue_location_url, allowfullscreen=true)
+
+    h6 Date
+
+    h6 Agenda
+
 
   
   footer(itemscope, itemtype='https://schema.org/WPFooter')

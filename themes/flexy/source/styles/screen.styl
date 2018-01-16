@@ -124,6 +124,23 @@ $default-padding = 20px
 html
   font-size 62.5%
 
+html, body
+  padding: 0;
+  margin: 0;
+
+html
+  height: 100%;
+
+body
+  min-height: 100%; 
+
+// Header animation
+@keyframes slide
+  0%
+    transform translate3d(0, 0, 0)
+  100%
+    transform translate3d(-240px, -240px, 0)
+
 body
   color $body-color
   margin 0
@@ -132,8 +149,18 @@ body
   font-family $body-font
   font-size 1.62rem
   font-weight $body-weight
-  line-height 1.6em
-
+  line-height 1.6em 
+  .space
+    animation slide 8s linear infinite
+    background-image url('../images/stars.svg')
+    background-position center center
+    background-size 240px
+    height 400%
+    left 0
+    position absolute
+    top 0
+    width 400%
+    z-index 1 
 a
   color $body-link-color
   text-decoration underline
@@ -157,18 +184,21 @@ main
 // ===========================================================================
 
 header
-  background-image linear-gradient(8deg, hsl(220, 100%, 12%), hsl(220, 40%, 4%) 50%)
+  background #000f1a
+  // background-image linear-gradient(8deg, hsl(220, 100%, 12%), hsl(220, 40%, 4%) 50%)
   flex 1
   overflow hidden
   position relative
   text-align center
+  // height 100vh
   a
   h1
   p
   nav
     position relative
     z-index 2
-
+  p.getting-married-text
+    font-size: 2.62rem !important
   h1 
     margin-top: -55px
   // Link styling
@@ -230,14 +260,7 @@ header
     position absolute
     top 0
     width 400%
-    z-index 1
-
-// Header animation
-@keyframes slide
-  0%
-    transform translate3d(0, 0, 0)
-  100%
-    transform translate3d(-240px, -240px, 0)
+    z-index 1 
 
 // ===========================================================================
 // 3. Main
@@ -245,14 +268,19 @@ header
 
 main
   // Background and text flow
-  background $background-color
-  flex 2
+  // background $background-color
+  // background-image linear-gradient(8deg, hsl(220, 100%, 12%), hsl(220, 40%, 4%) 50%)
+  background #ececec //#000f1a
+  height 100vh
+  color #000
+  flex 1
   hypens auto
   overflow-x hidden
   padding 20px // Smaller padding on small screens
   text-align left
   word-break normal
   word-wrap break-word
+  // Disabled
   .disabled
     opacity: 0.65; 
   // Links to articles
@@ -287,6 +315,12 @@ main
     font-weight $small-weight
     font-size 1.62rem
     margin 0
+  .venue-map 
+    width 90%
+    border 2px dashed #aaa !important;
+    padding 3px;
+    border-radius 4px;
+
   // Article list
   article.item
     border-bottom 1px solid hsla(0, 0, 0, .15)

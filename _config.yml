@@ -3,13 +3,15 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Welcome to the Jash Wedding
+title: Vignesh & Jagadambiga
 subtitle: 
-description1: Wedding reception on 25th Feb 2018 6.30PM onwards
-description2: Muhurtham on 26th Feb 2018, 6AM to 7.15AM
+description1: are getting married :)
+description2: Wedding reception on 25th Feb 2018 6.30PM onwards. Muhurtham on 26th Feb 2018, 6AM to 7.15AM
 author: Vignesh Kumar
 language: en
 timezone: Asia/Kolkata
+google_map_api_key: AIzaSyBzxRsiNDE1gb9tXO6pPXNc0ABmwjhP128
+venue_location_url: https://www.google.com/maps/embed/v1/place?key=AIzaSyBzxRsiNDE1gb9tXO6pPXNc0ABmwjhP128&q=VRG+Marriage+Hall
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
