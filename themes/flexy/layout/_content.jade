@@ -6,12 +6,7 @@ if is_home()
   article.full
 
     //- page content to be filled in here
-    div(class='venue')
-      h6 Venue
-      p VRG Thirumana Mahal, Edayarpalayam, Coimbatore
-      div
-        iframe(class='venue-map', width="660", height="371", frameborder="0", style="border:0", src=config.venue_location_url, allowfullscreen=true)
-
+    
     div(class='dates')
       h6 Dates  
       div
@@ -36,6 +31,13 @@ if is_home()
             div Time 3
             div Function 3 
             div Desc 3
+
+    div(class='venue')
+      h6 Venue
+      p VRG Thirumana Mahal, Edayarpalayam, Coimbatore
+      div
+        iframe(class='venue-map', width="660", height="371", frameborder="0", style="border:0", src=config.venue_location_url, allowfullscreen=true)
+
 
     div(class='to-do-in-cbe')
       h6 Things to do while you're in Coimbatore
