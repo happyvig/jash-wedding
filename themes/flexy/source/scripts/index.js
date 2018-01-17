@@ -15,7 +15,8 @@ $(document).ready(function(){
     touchEnabled: true,
     adaptiveHeight: false,
     auto: true,
-    shrinkItems: true
+    shrinkItems: true,
+    speed: 1000
   });
 });
 
