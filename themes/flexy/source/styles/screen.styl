@@ -408,11 +408,12 @@ main
     border-radius 4px;
     z-index: 10
   .pics-carousel
-    height 100px
-    img
-      height 50px
-      width 50px
-
+    .bx-wrapper
+      max-width 720px !important
+      .bx-viewport
+        height 480px !important
+        .carousel
+          height: 480px !important
 
   // Article list
   article.item
@@ -730,7 +731,8 @@ main
       font-weight 500
       color $footer-pubkey-color
 
-.dates h6, .agenda h6, .venue h6, .to-do-in-cbe h6, .contact-us h6 {
+// Subtitle header color
+.dates h6, .agenda h6, .venue h6, .to-do-in-cbe h6, .contact-us h6, .pics-carousel h6 {
   color #eb008b
 }
 
@@ -1131,3 +1133,4 @@ pre .chunk
 // Carousel plugin style overrides
 .bx-wrapper .bx-pager.bx-default-pager a.active  
   background #ec008b !important
+    

@@ -38,9 +38,11 @@ if is_home()
       div
         iframe(class='venue-map', width="660", height="371", frameborder="0", style="border:0", src=config.venue_location_url, allowfullscreen=true)
 
-    div(class="slider pics-carousel")
-      each id in [1,2,3,4,5,6,7,8]
-        img(src='/images/carousel-' + id + '.jpg', title='')
+    div(class="pics-carousel")  
+      h6 In case you missed,
+      div(class="slider carousel")
+        each id in [1,2,3,4,5,6,7,8]
+          img(src='/images/carousel-r-' + id + '.jpg', title='')
 
     div(class='to-do-in-cbe')
       h6 Things to do while you're in Coimbatore
