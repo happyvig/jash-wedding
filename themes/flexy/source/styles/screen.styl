@@ -205,6 +205,28 @@ body
   animation:move-clouds-back 200s linear infinite;
 }
 
+@keyframes fadeInUp {
+  from { 
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 
 
 // Header animation
@@ -265,6 +287,20 @@ header
   position relative
   text-align center
   // height 100vh
+
+  // move up animation for header texts
+  .first, .second, .third, .fourth
+    opacity 0
+    animation: fadeInUp 1s ease-in-out 0s forwards;
+  .first 
+    animation-delay 0.5s
+  .second
+    animation-delay 1.25s
+  .third 
+    animation-delay 2.25s
+  .fourth 
+    animation-delay 3.25s
+
   a
   h1
   p
@@ -345,6 +381,9 @@ main
   // Background and text flow
   // background $background-color
   // background-image linear-gradient(8deg, hsl(220, 100%, 12%), hsl(220, 40%, 4%) 50%)
+
+  animation fadeIn 1s ease-in-out 4.5s forwards;
+
   background #010101
   height 100%
   color #eee
@@ -355,6 +394,9 @@ main
   text-align left
   word-break normal
   word-wrap break-word
+  
+  
+
   // Disabled
   .disabled
     opacity: 0.65; 
