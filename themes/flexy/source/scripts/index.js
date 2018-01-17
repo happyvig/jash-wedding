@@ -7,6 +7,15 @@
 //});
 
 $(document).ready(function(){
-  $('.slider').bxSlider();
+  $('.slider').bxSlider({
+    mode: 'fade',
+    captions: false,
+    responsive: true,
+    preloadImages: 'visible',
+    touchEnabled: true,
+    adaptiveHeight: false,
+    auto: true,
+    shrinkItems: true
+  });
 });
 
