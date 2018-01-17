@@ -411,9 +411,11 @@ main
     .bx-wrapper
       max-width 720px !important
       .bx-viewport
-        height 480px !important
+        max-height 480px !important
         .carousel
-          height: 480px !important
+          max-height: 480px !important
+      .bx-pager.bx-default-pager a.active  
+        background #ec008b !important
 
   // Article list
   article.item
@@ -1128,9 +1130,3 @@ pre .chunk
 .gist .line-number
   min-width 25px
   font-size 1.1rem
-
-
-// Carousel plugin style overrides
-.bx-wrapper .bx-pager.bx-default-pager a.active  
-  background #ec008b !important
-    
