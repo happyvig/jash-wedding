@@ -95,11 +95,13 @@ $darker-blue   = darken($blue, 80%)
 
 // 0.4 Defaults
 
-$author = 'Sjaak van den Berg'
+$author = 'VignesH KumaR'
+
+$primary-text-color = #eb008b
 
 $title-color             = $blue
 $description-color       = $white
-$header-link-color       = #eb008b //$blue
+$header-link-color       = $primary-text-color //$blue
 $link-hover-header-color = $blue
 
 $body-color            = $black
@@ -443,11 +445,36 @@ main
     font-weight $small-weight
     font-size 1.62rem
     margin 0
+
+  .agenda
+    ul.agenda-list
+      li.agenda-list-item
+        padding: 15px 0px 0px 0px
+        .event
+          display flex
+          justify-content flex-start
+          flex-wrap wrap
+          .event-time
+            min-width 175px
+            max-width 175px
+            color: $primary-text-color
+          .event-name
+            min-width 200px
+            max-width 200px
+            color #fff
+          .event-desc
+            color #a4a4a4
+            font-size 13px
+
+
   .venue-map 
+    width: 95%;
+    max-height 300px
     border 2px dashed #aaa !important;
     padding 5px;
     border-radius 4px;
     z-index: 10
+    
   .pics-carousel
     .bx-wrapper
       box-shadow none !important
@@ -780,7 +807,7 @@ main
 
 // Subtitle header color
 .dates h6, .agenda h6, .venue h6, .to-do-in-cbe h6, .contact-us h6, .pics-carousel h6 {
-  color #eb008b
+  color $primary-text-color
 }
 
 
@@ -1051,6 +1078,10 @@ figure.highlight
       padding 40px
       .space
         height 100% !important
+      .venue-map 
+        width: 95%;
+        max-width 710px
+        max-height 480px
       form
         .form-column
           input[type="name"]

@@ -17,20 +17,40 @@ if is_home()
       h6 Agenda
       ul(class='agenda-list') 
         li(class='agenda-list-item') 
-          div
-            div Time 1
-            div Function 1 
-            div Desc 1
+          div(class='event')
+            div(class='event-time') @ 6:30 PM, Feb 25 
+            div(class='event-name') Reception 
+            div(class='event-desc') What to expect: queues and camera flashes ;)
         li(class='agenda-list-item') 
-          div
-            div Time 2
-            div Function 2
-            div Desc 2
+          div(class='event')
+            div(class='event-time') @ 8 PM, Feb 25
+            div(class='event-name') Dinner
+            div(class='event-desc') What to expect: delicious food ;)
         li(class='agenda-list-item')  
-          div
-            div Time 3
-            div Function 3 
-            div Desc 3
+          div(class='event')
+            div(class='event-time') @ 6 AM, Feb 26
+            div(class='event-name') Muhurtham starts
+            div(class='event-desc') What to expect: serious mode :)
+        li(class='agenda-list-item')  
+          div(class='event')
+            div(class='event-time') @ 6:30 AM, Feb 26
+            div(class='event-name') Kettimelam :)
+            div(class='event-desc') The most important few minutes of the day (our lives). Don't miss it!. 
+        li(class='agenda-list-item')  
+          div(class='event')
+            div(class='event-time') @ 7 AM, Feb 26
+            div(class='event-name') Its official !! :)
+            div(class='event-desc') Unless something goes horribly wrong, we will be Mr & Mrs by this point ;) - so let’s start celebrating! Time for pictures !!
+        li(class='agenda-list-item')  
+          div(class='event')
+            div(class='event-time') @ 8:00 AM, Feb 26
+            div(class='event-name') Breakfast
+            div(class='event-desc') What to expect: delicious food ;)     
+        li(class='agenda-list-item')  
+          div(class='event')
+            div(class='event-time') @ 12:30 PM, Feb 26
+            div(class='event-name') Lunch
+            div(class='event-desc') What to expect: delicious food ;)           
 
     div(class='venue')
       h6 Venue
@@ -39,7 +59,7 @@ if is_home()
         iframe(class='venue-map', width="710", height="480", frameborder="0", style="border:0", src=config.venue_location_url, allowfullscreen=true)
 
     div(class="pics-carousel")  
-      h6 Quick recap
+      h6 We got engaged on Dec 3, 2017
       div(class="slider carousel")
         each id in [1,2,3,4,5,6,7,8]
           img(src='/images/carousel-r-' + id + '.jpg', title='')
