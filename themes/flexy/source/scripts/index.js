@@ -51,6 +51,9 @@ jQuery(function ($) {
     $('section.card-container').find('#card').toggleClass('flipped');
   });
 
+  setTimeout(function() {
+    $('.heart-pic').removeClass('fadeInUp').addClass('beat');
+  }, 5000);
 
 });
 

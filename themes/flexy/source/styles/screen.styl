@@ -313,7 +313,11 @@ body
 	70% { -webkit-transform: scale(1.015); }
 	80% { -webkit-transform: scale(1); }
 	100% { -webkit-transform: scale(1); }
- 
+}
+.beat {
+  opacity 1 !important
+  animation: beat 2s infinite alternate;
+  transform-origin: center;
 }
 
 
@@ -366,6 +370,9 @@ main
 // 2. Header
 // ===========================================================================
 
+.fadeInUp
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+
 header
   z-index 3
   background transparent
@@ -379,18 +386,21 @@ header
   .page-title
     font-family: 'Cabin Sketch', cursive;
 
+
+
   // move up animation for header texts
-  .first, .second, .third //, .fourth
+  .first, .second, .third, .fourth
     opacity 0
-    animation: fadeInUp 1s ease-in-out 0s forwards;
+    &.fadeInUp
+      @extend .fadeInUp
   .first 
-    animation-delay 0.5s
+    animation-delay 0.5s !important
   .second
-    animation-delay 1.25s
+    animation-delay 1.25s !important
   .third 
-    animation-delay 2.25s
-  //.fourth 
-    //animation-delay 3.25s
+    animation-delay 2.25s !important
+  .fourth 
+    animation-delay 3.25s !important
 
   a
   h1
@@ -468,8 +478,7 @@ header
     z-index 1 
   .heart-pic 
     animation-delay 3.3s 
-    animation: beat 2s infinite alternate;
-    transform-origin: center;
+    
 
 // ===========================================================================
 // 3. Main

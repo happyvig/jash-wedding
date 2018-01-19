@@ -1,14 +1,14 @@
 if theme.logo
-  a(href= config.root, class='first logo-link')
+  a(href= config.root, class='first fadeInUp logo-link')
     img(src= theme.logo, alt= config.title, title= config.title)
 
-h1(class='page-title second')
+h1(class='page-title second fadeInUp')
   a(href= config.root, alt= config.title, title= config.title, itemprop='headline')= config.title
 
 div(style="margin: 0px auto; position: relative; max-width: 250px; display: inline-block")
-  p(itemprop='description', class='third getting-married-text css-typing')!= config.description1
+  p(itemprop='description', class='third getting-married-text fadeInUp')!= config.description1
 
-img(src='/images/heart-pics.png', class='fourth heart-pic', alt= config.title, title= config.title, style='margin-top: 40px')
+img(src='/images/heart-pics.png', class='fourth fadeInUp heart-pic', alt= config.title, title= config.title, style='margin-top: 40px')
 
 
 //- p(itemprop='description')!= config.description2
