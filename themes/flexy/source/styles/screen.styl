@@ -25,16 +25,30 @@ section.card-container
   display block
   height 100%
   width 100%
-  line-height 200px
   color white
   text-align center
   position absolute
   backface-visibility hidden
+  font-size 16px
+  display flex
+  justify-content center
+  align-content center
+  flex-direction column
 #card .front 
-  background #000
+  background transparent
+  color #fff
+  .flip-card-cover
+    width 300px
+    height 219px
+    margin-top 0px !important
 #card .back 
-  background #000;
+  background #ccc
+  color #000
   transform rotateY(180deg)
+  white-space pre-wrap
+  font-style italic
+  border 1px dashed #000
+  padding 5px
 
 // ===========================================================================
 // Table of Contents
