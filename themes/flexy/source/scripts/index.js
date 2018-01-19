@@ -41,23 +41,23 @@ jQuery(function ($) {
   });
 
   var luckyEggs = [
-    'Congratulations, you just for a chance to click an awesome selfie with us and post in your FB account :)',
+    'Congratulations !! You just got a chance to click an awesome selfie with us and post in your FB account :)',
     'Wear your favorite red colour dress to the function :)',
     'Gift mandatory ;)',
     'If coming as a couple, we wish to see you both in same color dress :)',
-    'Wear your favorite black color dress to the function ;',
-    'Wear any ethnic or traditional dress to the function ;)',
+    'Wear your favorite black color dress to the function ;)',
+    'Wear only ethnic or traditional dress to the function ;)',
     'Congratulations, you just got a lucky chance to take us out for lunch ;)',
     'Congratulations, you just got a lucky chance to take us out for dinner ;)',
     'Congratulations, you just got a lucky chance to take us out for a movie ;)',
-    'Super ! you just got a lucky chance to invite us to your home first.',
+    'Superb ! You just got a lucky chance to invite us to your home first !! ;)',
     'Bring a colourful wedding cake for the wedding ;)',
     'Click a funny selfie in the function and post in FB :)',
     'Lucky streak !! You just got a chance to have dinner with the couple in the marriage hall. Meet us in the back stage ;)',
     'Lucky you ! You got a chance to have breakfast with the couple in the marriage hall. Meet us in the back stage ;)',
     'Congrats ! You got a lucky chance to click the last selfie of the day with us ;)',
-    'You are the lucky person to click a selfie and have as your Whatsapp dp ;)',
-    'You are the lucky person to click a selfie and have as your Whatsapp daily status ;)',
+    'You will be the lucky person to click a selfie with us and have as your Whatsapp dp ;)',
+    'You will be the lucky person to click a selfie with us and have as your Whatsapp daily status ;)',
     'Congratulations ! You are the lucky person to be bride/groom\'s friend on stage ;)'
   ];
   var randomLuckyEgg = luckyEggs[Math.floor(Math.random() * luckyEggs.length)];

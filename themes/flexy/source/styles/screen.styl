@@ -8,7 +8,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');    // font-family: 'Cabin Sketch', cursive;
 
 // Special font for 'are getting married' text in the page header
-@import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans');  // font-family: 'Bubblegum Sans', cursive;
+@import url('https://fonts.googleapis.com/css?family=Life+Savers');     // font-family: 'Life Savers', cursive;
 
 // Page content font
 @import url('https://fonts.googleapis.com/css?family=Pangolin');        // font-family: 'Pangolin', cursive;
@@ -459,7 +459,7 @@ header
   p.getting-married-text
     position: relative; 
     font-size: 100%;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: 'Life Savers', cursive;
     font-size: 2.62rem !important
   h1 
     margin-top: -55px
@@ -616,6 +616,7 @@ main
           .event-desc
             color #a4a4a4
             font-size 1.6rem
+            line-height 1.5em
 
 
   .venue-map 
@@ -639,6 +640,12 @@ main
           max-height: 480px !important
       .bx-pager.bx-default-pager a.active  
         background #ec008b !important
+  
+  .contact-us
+    text-align center
+    margin-top 20px
+    .email  
+      color $primary-text-color
 
   .end-word
     text-align center
@@ -676,7 +683,6 @@ main
       box-shadow $background-color 0 0 0 5px
   // Full article
   article.full
-    padding-bottom 20px
     z-index: 10;
     position: relative;
     h2
@@ -948,18 +954,16 @@ main
     border darken($background-color, 15%) 1px solid
     font-size 1.3rem
     line-height 2.1em
-    color lighten($body-color, 50%)
-    background darken($background-color, 5%)
+    color #fff
+    background transparent
     :not(main) > a
       color lighten($body-color, 20%)
       font-weight 700
       text-decoration none
+    section
+      color #fff
     .footer-icon
       color $primary-text-color
-    .pubkey
-      font-family $code-font
-      font-weight 500
-      color $footer-pubkey-color
 
 // Subtitle header color
 .dates, 
@@ -1259,6 +1263,9 @@ figure.highlight
           input[type="email"]
             width 35%
             margin .5em .5em .5em 0
+      footer
+        text-align left
+        
 
 // ===========================================================================
 // 7. Code Theme
