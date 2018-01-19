@@ -10,8 +10,11 @@ if is_home()
     div(class='dates')
       h6 Dates  
       div
-        p Reception: 25th Feb 2018, 6:30PM onwards
-        p Muhurtham: 26th Feb 2018, 6:00 to 7:30AM
+        span.date-title Reception: 
+        | 25th Feb 2018, 6:30PM onwards
+      div  
+        span.date-title Muhurtham: 
+        | 26th Feb 2018, 6:00 to 7:30AM
 
     div(class='agenda')
       h6 Agenda
@@ -45,18 +48,37 @@ if is_home()
           div(class='event')
             div(class='event-time') @ 8:00 AM, Feb 26
             div(class='event-name') Breakfast
-            div(class='event-desc') What to expect: delicious food ;) veg only :(  
+            div(class='event-desc') What to expect: yummy south indian cuisine breakfast ;)  
         li(class='agenda-list-item')  
           div(class='event')
             div(class='event-time') @ 12:30 PM, Feb 26
             div(class='event-name') Lunch
-            div(class='event-desc') What to expect: delicious food ;) veg only :(         
+            div(class='event-desc') What to expect: kalyana virundhu full meals ;)        
 
     div(class='venue')
       h6 Venue
       p VRG Thirumana Mahal, Edayarpalayam, Coimbatore
       div
         iframe(class='venue-map', width="710", height="480", frameborder="0", style="border:0", src=config.venue_location_url, allowfullscreen=true)
+
+    div(class='our-story')
+      h6 Our Story
+      p Wanna know our story ??
+      p
+        | Well... here it goes.. Seems like God scripted it. (ROFL)
+        | Seriously, pakka right from birth itself. 
+      p
+        | We both were born in the same Tamil month (but not the same year though) :p
+        | And guess what, both of our granny's house is in the same street and looks like both of our relatives were also acquainted. Now your question will be, have you two met before then?
+        | Fortunately or unfortunately, we haven't. Yes, you heard it right. We haven't met even once crossing in that street.
+      p
+        | Here comes a super twist on the story.
+        | We happened to be studying in the same college (CIT) !! Appovum paathukala... (facepalm)
+        | Now your reaction will be like: Oh is it? really ?. Sadly the answer is yes.
+      p Next twist, we both got jobs and settled in Chennai, interestingly, in the same area. Appavum pathadhilla...
+      p Ipadiye vitta ivanga sari pattu varamaatanga. Pesame nammale sethu vachidalaam nu Mr.God decide panni sethu vachitaaru pola !!!
+      p Avlo thaan !! 
+      p Our short and sweet story !!
 
     div(class="pics-carousel")  
       h6 We got engaged on Dec 3, 2017
@@ -67,16 +89,26 @@ if is_home()
     div(class='to-do-in-cbe')
       h6 Things to do while you're in Coimbatore
       ul
-        li Topslip
-        li Black Thunder Water Theme Park
-        li Ooty
-        li Kovai Kutralam Falls
-        li Kovai Kondattam Theme Park 
-        li Isha Dhyanalinga Temple
-        li Marudamalai Temple
-        li Brookfields Mall
-        li Fun City Mall
-        li G.D. Naidu Industrial Exhibition
+        li 
+          a(target='_blank', data-val='Topslip', href='https://www.tripadvisor.in/Attraction_Review-g297675-d12495890-Reviews-Topslip-Coimbatore_Coimbatore_District_Tamil_Nadu.html') Topslip
+        li 
+          a(target='_blank', data-val='Black-Thunder-Water-Theme-Park', href='https://www.tripadvisor.in/Attraction_Review-g297675-d2697671-Reviews-Black_Thunder_Theme_Park-Coimbatore_Coimbatore_District_Tamil_Nadu.html') Black Thunder Water Theme Park
+        li 
+          a(target='_blank', data-val='Ooty', href='https://www.tripadvisor.in/Tourism-g297679-Ooty_Udhagamandalam_The_Nilgiris_District_Tamil_Nadu-Vacations.html') Ooty
+        li 
+          a(target='_blank', data-val='Kovai-Kuttralam-Falls', href='https://www.tripadvisor.in/Attraction_Review-g297675-d3705500-Reviews-Kovai_Kutralam_Falls-Coimbatore_Coimbatore_District_Tamil_Nadu.html') Kovai Kutralam Falls
+        li 
+          a(target='_blank', data-val='Kovai-Kondattam-Theme-Park', href='https://www.tripadvisor.in/Attraction_Review-g297675-d6500603-Reviews-Kovai_Kondattam_Theme_Park-Coimbatore_Coimbatore_District_Tamil_Nadu.html') Kovai Kondattam Theme Park 
+        li 
+          a(target='_blank', data-val='Isha-Dhyanalingam-Temple', href='https://www.tripadvisor.in/Attraction_Review-g297675-d1202930-Reviews-Dhyanalinga_Temple-Coimbatore_Coimbatore_District_Tamil_Nadu.html') Isha Dhyanalinga Temple
+        li 
+          a(target='_blank', data-val='Marudhamalai-Temple', href='https://www.tripadvisor.in/Attraction_Review-g297675-d1368391-Reviews-Marudamalai_Temple-Coimbatore_Coimbatore_District_Tamil_Nadu.html') Marudamalai Temple
+        li 
+          a(target='_blank', data-val='Brookefields-Mall', href='https://www.tripadvisor.in/Attraction_Review-g297675-d2360275-Reviews-Brookefields_Mall-Coimbatore_Coimbatore_District_Tamil_Nadu.html') Brookefields Mall
+        li 
+          a(target='_blank', data-val='Fun-City-Mall', href='https://www.tripadvisor.in/Attraction_Review-g297675-d4441535-Reviews-Fun_City_Mall-Coimbatore_Coimbatore_District_Tamil_Nadu.html') Fun City Mall
+        li 
+          a(target='_blank', data-val='GD-Naidu-Industrial-Exhibition', href='https://www.tripadvisor.in/Attraction_Review-g297675-d4139052-Reviews-G_D_Naidu_Industrial_Exhibition-Coimbatore_Coimbatore_District_Tamil_Nadu.html') G.D. Naidu Industrial Exhibition
 
     div(class='flipcard-container')
       h6 Tap to check your luck

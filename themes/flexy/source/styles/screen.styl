@@ -597,6 +597,10 @@ main
     font-size 1.62rem
     margin 0
 
+  .dates
+    .date-title
+      color $primary-text-color
+
   .agenda
     ul.agenda-list
       li.agenda-list-item
@@ -626,7 +630,12 @@ main
     padding 5px;
     border-radius 4px;
     z-index: 10
-    
+
+  .our-story
+    p
+      font-size: 1.6rem;
+      line-height: 1.25em;
+
   .pics-carousel
     .bx-wrapper
       box-shadow none !important
@@ -641,6 +650,10 @@ main
       .bx-pager.bx-default-pager a.active  
         background #ec008b !important
   
+  .to-do-in-cbe
+    ul li a 
+      color #1d9cf7
+
   .contact-us
     text-align center
     margin-top 20px
@@ -970,10 +983,11 @@ main
 .agenda, 
 .venue, 
 .to-do-in-cbe, 
-.contact-us, 
+.our-story,
 .pics-carousel, 
 .flipcard-container,
-.end-word
+.end-word,
+.contact-us
   padding 10px 0px
   h6
     font-size 3rem
@@ -1255,7 +1269,7 @@ figure.highlight
       .flipcard-container
         section.card-container
           margin 0 !important
-      .end-word
+      .contact-us, .end-word
         text-align left
       form
         .form-column
