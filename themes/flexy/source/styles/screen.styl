@@ -1,7 +1,14 @@
 
 // FONTS
+
+// Page content titles
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');   // font-family: 'Amatic SC', cursive;
 
+// Special font for title names in the page header
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');    // font-family: 'Cabin Sketch', cursive;
+
+// Special font for 'are getting married' text in the page header
+@import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans');  // font-family: 'Bubblegum Sans', cursive;
 
 
 // Flip card css
@@ -353,6 +360,9 @@ header
   text-align center !important
   // height 100vh
 
+  .page-title
+    font-family: 'Cabin Sketch', cursive;
+
   // move up animation for header texts
   .first, .second, .third, .fourth
     opacity 0
@@ -373,6 +383,7 @@ header
     position relative
     z-index 2
   p.getting-married-text
+    font-family: 'Bubblegum Sans', cursive;
     font-size: 2.62rem !important
   h1 
     margin-top: -55px
