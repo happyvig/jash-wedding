@@ -1,38 +1,38 @@
-// Scratchcard Plugin CSS
+// Flip card css
 
-.sc__wrapper
-  display block
-  width 100%
-  height  200px
+section.card-container
+  width 90%
   max-width 300px
-  border  1px solid rgba(#fff, 0.5)
-
-// Where the scratchcard will be generate.
-.sc__container 
+  height 220px
   position relative
-  overflow hidden
-  max-height 200px
-  max-width 300px
-
-// Background image, the result...
-.sc__container > img 
-  position relative
-  top 0
-  left 0
+  margin 0 auto 0px
+  border 1px solid #000
+  border-radius 3px
+  perspective 800px
+#card 
   width 100%
-  margin-top 0px !important
-  height 200px
-  width 300px
-
-
-// The scratchcard generate with scratchcard-js
-.sc__container canvas 
+  height 100%
   position absolute
-  top 0
-  left 0
+  transition transform 1s
+  transform-style preserve-3d
+#card.flipped 
+  transform rotateY(180deg)
+#card figure 
+  margin 0px !important
+  border 1px dashed #ccc
+  display block
+  height 100%
   width 100%
-  height auto
-
+  line-height 200px
+  color white
+  text-align center
+  position absolute
+  backface-visibility hidden
+#card .front 
+  background #000
+#card .back 
+  background #000;
+  transform rotateY(180deg)
 
 // ===========================================================================
 // Table of Contents
@@ -525,14 +525,8 @@ main
       .bx-pager.bx-default-pager a.active  
         background #ec008b !important
 
-  .scratchcard-container
-    .scratch-top,
-    .scratch-bottom
-      width 200px
-      height  200px
-      margin-top 0px !important
-    #scratchCardCanvas  
-      cursor: default;
+  .flipcard-container
+      cursor: pointer;
 
   // Article list
   article.item
@@ -857,7 +851,7 @@ main
 .to-do-in-cbe, 
 .contact-us, 
 .pics-carousel, 
-.scratchcard-container 
+.flipcard-container 
   padding 10px 0px
   h6
     color $primary-text-color
@@ -1134,6 +1128,9 @@ figure.highlight
         width: 95%;
         max-width 710px
         max-height 480px
+      .flipcard-container
+        section.card-container
+          margin 0 !important
       form
         .form-column
           input[type="name"]
