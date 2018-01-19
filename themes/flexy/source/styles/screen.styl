@@ -70,6 +70,52 @@ section.card-container
   background-color #dfdfdf
   background  -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.5, #dfdfdf), to(#cecece))
 
+
+// Count down clock css overrides
+
+.flip-clock-wrapper
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .flip-clock-divider.days
+    width 0 !important
+    margin-left: -30px;
+
+  ul.flip
+    position relative
+    margin 5px
+    width 30px
+    height 45px
+    background #000
+
+  ul li
+    line-height 47px !important
+    a div
+      font-size 30px !important
+      div.inn
+        font-size 30px !important
+
+  span.flip-clock-divider
+    width 20px
+    height 50px
+    .flip-clock-label
+      color #fff
+      right -50px !important
+    .flip-clock-dot
+      width 5px
+      height 5px
+      background #ccc
+      .top
+        top 30px
+      .bottom
+        bottom 30px
+
+
+
+
+
+
 // ===========================================================================
 // Table of Contents
 // ===========================================================================
@@ -382,11 +428,13 @@ header
   position relative
   text-align center !important
   // height 100vh
+  margin-bottom: -15px;
 
   .page-title
     font-family: 'Cabin Sketch', cursive;
 
-
+  .flip-clock
+    margin-top 50px !important
 
   // move up animation for header texts
   .first, .second, .third, .fourth
@@ -490,7 +538,7 @@ main
   // background-image linear-gradient(8deg, hsl(220, 100%, 12%), hsl(220, 40%, 4%) 50%)
 
   //animation fadeIn 1s ease-in-out 4.5s forwards;
-
+  margin-top: -10px;
   background #010101
   height 100%
   color #eee
@@ -501,8 +549,6 @@ main
   text-align left
   word-break normal
   word-wrap break-word
-  
-  
 
   // Disabled
   .disabled

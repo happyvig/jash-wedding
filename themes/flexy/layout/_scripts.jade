@@ -1,14 +1,16 @@
-//- script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
 
+//- jQuery
 script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+
+//- Flipclock Plugin
+link(rel="stylesheet", href=config.root + 'styles/flipclock.css')
+script(src= config.root + 'scripts/flipclock.min.js')
 
 //- BxSlider Plugin
 link(rel="stylesheet", href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css")
 script(src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js")
 
-//- ScratchIt Plugin
-script(src=config.root + 'scripts/scratchcard.min.js')
-
+//- Index js
 script(src= config.root + 'scripts/index.js')
 
 if config.disqus_shortname

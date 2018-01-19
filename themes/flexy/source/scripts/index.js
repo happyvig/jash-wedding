@@ -9,6 +9,24 @@
 
 jQuery(function ($) {
 
+  // Start count down clock
+  var today = new Date();
+  var marriageDate = new Date('2018', '01', '26', '06', '30', '00');
+  var diffInSecs = (marriageDate - today)/1000;
+
+  var clock = $('.clock').FlipClock({
+    clockFace: 'DailyCounter',
+    autoStart: false,
+    showSeconds: false,
+    callbacks: {
+      stop: function () {}
+    }
+  });
+  clock.setTime(diffInSecs);
+  clock.setCountdown(true);
+  clock.start();
+
+
   //Init pictures carousel
   $('.slider').bxSlider({
     mode: 'fade',
@@ -51,7 +69,7 @@ jQuery(function ($) {
     $('section.card-container').find('#card').toggleClass('flipped');
   });
 
-  setTimeout(function() {
+  setTimeout(function () {
     $('.heart-pic').removeClass('fadeInUp').addClass('beat');
   }, 5000);
 
