@@ -285,7 +285,6 @@ body
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
-
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -300,6 +299,21 @@ body
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
+}
+
+// Heart beat animation
+@keyframes beat {
+  //to { transform: scale(1.05); opacity: 1; }
+
+  0% { -webkit-transform: scale(1); }
+	30% { -webkit-transform: scale(1); }
+	40% { -webkit-transform: scale(1.025); }
+	50% { -webkit-transform: scale(1); }
+	60% { -webkit-transform: scale(1); }
+	70% { -webkit-transform: scale(1.015); }
+	80% { -webkit-transform: scale(1); }
+	100% { -webkit-transform: scale(1); }
+ 
 }
 
 
@@ -366,7 +380,7 @@ header
     font-family: 'Cabin Sketch', cursive;
 
   // move up animation for header texts
-  .first, .second, .third, .fourth
+  .first, .second, .third //, .fourth
     opacity 0
     animation: fadeInUp 1s ease-in-out 0s forwards;
   .first 
@@ -375,8 +389,8 @@ header
     animation-delay 1.25s
   .third 
     animation-delay 2.25s
-  .fourth 
-    animation-delay 3.25s
+  //.fourth 
+    //animation-delay 3.25s
 
   a
   h1
@@ -385,6 +399,8 @@ header
     position relative
     z-index 2
   p.getting-married-text
+    position: relative; 
+    font-size: 100%;
     font-family: 'Bubblegum Sans', cursive;
     font-size: 2.62rem !important
   h1 
@@ -450,6 +466,10 @@ header
     top 0
     width 400%
     z-index 1 
+  .heart-pic 
+    animation-delay 3.3s 
+    animation: beat 2s infinite alternate;
+    transform-origin: center;
 
 // ===========================================================================
 // 3. Main

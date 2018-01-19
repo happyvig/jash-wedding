@@ -1,11 +1,14 @@
 if theme.logo
   a(href= config.root, class='first logo-link')
     img(src= theme.logo, alt= config.title, title= config.title)
+
 h1(class='page-title second')
   a(href= config.root, alt= config.title, title= config.title, itemprop='headline')= config.title
-p(itemprop='description', class='third getting-married-text')!= config.description1
 
-img(src='/images/heart-pics.png', class='fourth', alt= config.title, title= config.title, style='margin-top: 40px')
+div(style="margin: 0px auto; position: relative; max-width: 250px; display: inline-block")
+  p(itemprop='description', class='third getting-married-text css-typing')!= config.description1
+
+img(src='/images/heart-pics.png', class='fourth heart-pic', alt= config.title, title= config.title, style='margin-top: 40px')
 
 
 //- p(itemprop='description')!= config.description2
