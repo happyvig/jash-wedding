@@ -10,6 +10,8 @@
 // Special font for 'are getting married' text in the page header
 @import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans');  // font-family: 'Bubblegum Sans', cursive;
 
+// Page content font
+@import url('https://fonts.googleapis.com/css?family=Pangolin');        // font-family: 'Pangolin', cursive;
 
 // Flip card css
 
@@ -125,8 +127,8 @@ webfont('Fira Mono', 'fira/700', 700, normal)
 $title-font   = 'Open Sans', sans-serif
 $heading-font = 'Open Sans', sans-serif
 $button-font  = 'Open Sans', sans-serif
-$small-font   = 'Droid Serif', Georgia, serif
-$body-font    = 'Droid Serif', Georgia, serif
+$small-font   = 'Pangolin', cursive
+$body-font    = 'Pangolin', cursive                   // 'Droid Serif', Georgia, serif
 $code-font    = 'Fira Mono', monospace, sans-serif
 
 $title-weight   = 400
@@ -314,9 +316,9 @@ body
   height 100vh
   flex-direction column // mobile first
   font-family $body-font
-  font-size 1.62rem
+  font-size 2rem
   font-weight $body-weight
-  line-height 1.6em 
+  line-height 2em 
   .space
     animation slide 8s linear infinite
     background-image url('../images/stars.svg')
