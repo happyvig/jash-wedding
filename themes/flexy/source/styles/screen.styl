@@ -1,3 +1,9 @@
+
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');   // font-family: 'Amatic SC', cursive;
+
+
+
 // Flip card css
 
 section.card-container
@@ -45,13 +51,15 @@ section.card-container
     height 219px
     margin-top 0px !important
 #card .back 
-  background #ccc
+  //background #c0c0c0
   color #000
   transform rotateY(180deg)
   white-space pre-wrap
   font-style italic
   border 1px dashed #000
   padding 5px
+  background-color #dfdfdf
+  background  -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.5, #dfdfdf), to(#cecece))
 
 // ===========================================================================
 // Table of Contents
@@ -544,6 +552,9 @@ main
       .bx-pager.bx-default-pager a.active  
         background #ec008b !important
 
+  .end-word
+    text-align center
+
   // Article list
   article.item
     border-bottom 1px solid hsla(0, 0, 0, .15)
@@ -869,9 +880,12 @@ main
 .to-do-in-cbe, 
 .contact-us, 
 .pics-carousel, 
-.flipcard-container 
+.flipcard-container,
+.end-word
   padding 10px 0px
   h6
+    font-size 3rem
+    font-family 'Amatic SC', cursive
     color $primary-text-color
 
 
@@ -1149,6 +1163,8 @@ figure.highlight
       .flipcard-container
         section.card-container
           margin 0 !important
+      .end-word
+        text-align left
       form
         .form-column
           input[type="name"]
