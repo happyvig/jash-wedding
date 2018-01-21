@@ -27,7 +27,7 @@ jQuery(function ($) {
   clock.start();
 
 
-  //Init pictures carousel
+  // Init pictures carousel
   $('.slider').bxSlider({
     mode: 'fade',
     captions: false,
@@ -63,15 +63,28 @@ jQuery(function ($) {
   var randomLuckyEgg = luckyEggs[Math.floor(Math.random() * luckyEggs.length)];
   $('.flipcard-container').find('.back').text(randomLuckyEgg);
 
-  // Create a new scratch card on load
-
+  // Card flipper
   $('section.card-container').on('click', function () {
+    gtag('send', 'flipcard-flipped'); // google analytics
     $('section.card-container').find('#card').toggleClass('flipped');
   });
 
+  // Begin heart beat after page load
   setTimeout(function () {
     $('.heart-pic').removeClass('fadeInUp').addClass('beat');
   }, 5000);
+
+  // Reference: https://developers.google.com/analytics/devguides/collection/analyticsjs/user-timings
+  
+  // Feature detects Navigation Timing API support.
+  if (window.performance) {
+    // Gets the number of milliseconds since page load
+    // (and rounds the result since the value must be an integer).
+    var timeSincePageLoad = Math.round(performance.now());
+
+    // Sends the timing hit to Google Analytics.
+    ga('send', 'timing', 'Asset Dependencies', 'load', timeSincePageLoad);
+  }
 
 });
 
