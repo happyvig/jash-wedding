@@ -1,5 +1,5 @@
 
-// FONTS
+// GLOBAL FONTS
 
 // Page content titles
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');   // font-family: 'Amatic SC', cursive;
@@ -13,7 +13,8 @@
 // Page content font
 @import url('https://fonts.googleapis.com/css?family=Pangolin');        // font-family: 'Pangolin', cursive;
 
-// Flip card css
+
+// FLIP CARD CSS
 
 section.card-container
   width 90%
@@ -71,7 +72,7 @@ section.card-container
   background  -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.5, #dfdfdf), to(#cecece))
 
 
-// Count down clock css overrides
+// COUNT DOWN FLIP CLOCK CSS OVERRIDES
 
 .flip-clock-wrapper
   display: flex;
@@ -110,11 +111,6 @@ section.card-container
         top 30px
       .bottom
         bottom 30px
-
-
-
-
-
 
 // ===========================================================================
 // Table of Contents
@@ -663,37 +659,6 @@ main
   .end-word
     text-align center
 
-  // Article list
-  article.item
-    border-bottom 1px solid hsla(0, 0, 0, .15)
-    color $body-color
-    padding 40px
-    text-align center
-    h2
-      break-word normal
-      color $body-color
-      margin-bottom 16px
-      word-wrap break-word
-    p.post-excerpt
-      font-size 1.62rem
-      line-height 1.6em
-      margin 16px 0 0 0
-    &:after
-      display block
-      content ''
-      width 7px
-      height 7px
-      // Circle border
-      border darken($background-color, 12%) 1px solid
-      position relative
-      top 45px
-      left 50%
-      margin-left -5px
-      // Inside the circle
-      background darken($background-color, 15%)
-      border-radius 100%
-      // Around the circle
-      box-shadow $background-color 0 0 0 5px
   // Full article
   article.full
     z-index: 10;

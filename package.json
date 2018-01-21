@@ -1,6 +1,7 @@
 {
   "name": "jash-wedding",
   "version": "0.0.1",
+  "author": "VignesH KumaR",
   "private": true,
   "hexo": {
     "version": "3.4.4"
