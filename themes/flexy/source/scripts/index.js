@@ -75,7 +75,7 @@ jQuery(function ($) {
   }, 5000);
 
   // Reference: https://developers.google.com/analytics/devguides/collection/analyticsjs/user-timings
-  
+
   // Feature detects Navigation Timing API support.
   if (window.performance) {
     // Gets the number of milliseconds since page load
@@ -83,7 +83,7 @@ jQuery(function ($) {
     var timeSincePageLoad = Math.round(performance.now());
 
     // Sends the timing hit to Google Analytics.
-    ga('send', 'timing', 'Asset Dependencies', 'load', timeSincePageLoad);
+    gtag('send', 'timing', 'Asset Dependencies', 'load', timeSincePageLoad);
   }
 
 });
