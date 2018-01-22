@@ -43,18 +43,29 @@ jQuery(function ($) {
     e.preventDefault();
   });
 
+  var isSubmitClicked = false;
+
   // RSVP submit
   $('#rsvp-submit').click(function (e) {
     e.preventDefault();
+    isSubmitClicked = true;
+    $('#rsvp-form').submit();
+  });
 
-    var $this = $(this);
+  $('#rsvp-form').submit(function(e) {
+    e.preventDefault();
+
+    var $this = $('#rsvp-submit');
     var $parent = $this.parent();
     var $name = $parent.find('[name="rsvp-name"]');
     var $phone = $parent.find('[name="rsvp-phone"]');
     var $comment = $parent.find('[name="rsvp-comment"]');
 
+    if(!isSubmitClicked || ($name.val().length === 0)) 
+      return;
+
     // send
-    mixpanel.track("RSVP", { 'Name': $name.val(), 'Phone': $phone.val() || '-------', 'Comment': $comment.val() });
+    mixpanel.track("RSVP", { 'Name': $name.val(), 'Phone': $phone.val() || '-------', 'Comment': $comment.val() || '---------' });
 
     $this.val('Thanks for coming !!').css({ 'background': '#80c376', color: '#fff' });
 
@@ -63,9 +74,9 @@ jQuery(function ($) {
       $('.popup-close').trigger('click');
       $name.val(''); $phone.val(''); $comment.val('');
       $('#rsvp-submit').val('Submit').css({ 'background': '#ccc', color: '#000' });
+      isSubmitClicked = false;
     }, 2000);
-    
-  });
+  })
 
   // Init count down clock
   var today = new Date();
