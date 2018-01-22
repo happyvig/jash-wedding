@@ -112,6 +112,89 @@ section.card-container
       .bottom
         bottom 30px
 
+// MODAL CSS
+
+/* Outer */
+.popup {
+  z-index 9999
+  width:100%;
+  height:100%;
+  display:none;
+  position:fixed;
+  top:0px;
+  left:0px;
+  background:rgba(0,0,0,0.75);
+}
+/* Inner */
+.popup-inner 
+  max-width:400px;
+  width:90%;
+  padding: 0px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  -webkit-transform:translate(-50%, -50%);
+  transform:translate(-50%, -50%);
+  box-shadow:0px 2px 6px rgba(0,0,0,1);
+  border-radius:3px;
+  background:#fff;
+  .popup-content
+    padding: 0px 20px 20px;
+    p
+      text-align center
+  #rsvp-form
+    input, textarea
+      display block
+      width 100%
+      max-width 250px
+      margin 0px auto
+      margin-top 10px
+      font-size 14px
+      color #000
+      border none
+      background transparent
+      border-radius 3px
+      border 1px solid #ccc
+      padding 5px
+      &[name="rsvp-name"]
+        text-transform: capitalize;
+      &[type="submit"]
+        background #ccc
+        color #000
+      ::-webkit-input-placeholder 
+        -webkit-text-security: none;
+        color: #fff;
+        pointer-events: none;
+
+/* Close Button */
+.popup-close {
+  width:30px;
+  height:30px;
+  padding-top:4px;
+  display:inline-block;
+  position:absolute;
+  top:0px;
+  right:0px;
+  transition:ease 0.25s all;
+  -webkit-transform:translate(50%, -50%);
+  transform:translate(50%, -50%);
+  border-radius:1000px;
+  background:rgba(0,0,0,0.8);
+  font-family:Arial, Sans-Serif;
+  font-size:20px;
+  text-align:center;
+  line-height:100%;
+  color:#fff;
+}
+.popup-close:hover {
+  -webkit-transform:translate(50%, -50%) rotate(180deg);
+  transform:translate(50%, -50%) rotate(180deg);
+  background:rgba(0,0,0,1);
+  text-decoration:none;
+}
+
+
+
 // ===========================================================================
 // Table of Contents
 // ===========================================================================
@@ -527,7 +610,43 @@ header
     z-index 1 
   .heart-pic 
     animation-delay 3.3s 
-    
+  .rsvp
+    margin-top 30px
+    margin-bottom 10px
+    a.rsvp-toggle
+      padding 5px
+      margin 0px auto
+      width 100%
+      max-width 250px
+      display block
+      text-decoration none
+      border 1px dashed #ccc
+      user-select none
+      -webkit-tap-highlight-color transparent
+      &:active
+        background #ccc !important
+        color #000
+      .inner
+        color #fff
+        padding-left 1em
+        overflow hidden
+        display none
+        &.show 
+          /*display: block;*/
+    li 
+      margin .5em 0
+      a.rsvp-toggle 
+        width 100%
+        display block
+        background rgba(0,0,0,0.78)
+        color #fefefe
+        padding 0.75em
+        border-radius 0.15em
+        transition background 0.3s ease
+        &:hover
+          background rgba(0, 0, 0, 0.9)
+
+
 
 // ===========================================================================
 // 3. Main
@@ -604,6 +723,8 @@ main
 
   .agenda
     ul.agenda-list
+      li.agenda-list-item:first-child
+        padding: 0px 0px 0px 0px
       li.agenda-list-item
         padding: 15px 0px 0px 0px
         .event
@@ -1214,7 +1335,7 @@ figure.highlight
       height 100%
 
       a.logo-link 
-        margin-top 0px
+        margin-top -65px
 
       img
         //margin 0 -32px 0 0
@@ -1229,6 +1350,16 @@ figure.highlight
             &:after
               content ''
               padding 0
+      .rsvp
+        float right
+        margin-top 10px !important
+        margin-bottom 0px !important
+      
+      .invitation-text
+        margin-left 50px !important
+
+      p.you-are-invited-text
+        margin-top 15px
 
     main
       flex 2

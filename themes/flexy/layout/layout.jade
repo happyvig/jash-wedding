@@ -11,6 +11,17 @@ html(lang='en-us')
     header(itemscope, itemtype='https://schema.org/WPHeader')
       include _header
 
+    div(class="popup", data-popup="popup-1")
+      div(class="popup-inner")
+        div(class='popup-content')
+          p We are glad that you are coming 
+          form(id='rsvp-form')
+            input(type='text', placeholder='Name', name='rsvp-name', required='true', maxlength='25', autocomplete='on')
+            input(type='tel', placeholder='Contact', name='rsvp-phone', autocomplete='on')
+            textarea(placeholder='Comments', name='rsvp-comment', autocomplete='off', rows="3")
+            input(type='submit', id='rsvp-submit', value='Submit')
+        a(class="popup-close", data-popup-close="popup-1", href="#") x
+
     main(itemscope, itemtype='https://schema.org/Blog')
       include _content
 

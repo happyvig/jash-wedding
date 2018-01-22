@@ -15,8 +15,12 @@ div(style="margin: 0px auto; position: relative; max-width: 250px; display: inli
 img(src='/images/heart-pics.png', class='fourth fadeInUp heart-pic', alt= config.title, title= config.title, style='margin-top: 40px')
 
 //- Count down flip clock
-div(class='clock flip-clock')
+div(class='clock flip-clock', style='display: none')
 
 //- 'You are invited' text
-div(style="margin: 0px auto; position: relative; max-width: 250px; display: inline-block")
+div(class='invitation-text', style="margin: 0px auto; position: relative; max-width: 250px; display: none")
   p(itemprop='description', class='you-are-invited-text')!= config.invitation
+
+//- RSVP form
+div(class='rsvp', style='display: none')
+  a(class='rsvp-toggle', href='javascript:void(0);', data-popup-open="popup-1") RSVP here
