@@ -97,10 +97,17 @@ jQuery(function ($) {
     mixpanel.track("Time Since Page Load", {timeSincePageLoad: timeSincePageLoad}); // mixpanel
   }
 
-  // Track repo link clicks
+  // Track places link clicks in MixPanel
+  $('.to-do-in-cbe ul li').on('click', 'a', function(e) {
+    mixpanel.track("Places Link Clicked", {
+      place: $(e.currentTarget).attr('data-val')
+    });
+  });
+
+  // Track repo link clicks in MixPanel
   $('#repo-link').on('click', function(){
-    mixpanel.track("Repo Link Clicked"); // mixpanel
-  })
+    mixpanel.track("Repo Link Clicked"); 
+  });
 
 });
 
