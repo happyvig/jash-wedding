@@ -74,7 +74,7 @@ jQuery(function ($) {
   // Card flipper
   $('section.card-container').on('click', function () {
     gtag('send', 'flipcard-flipped'); // google analytics
-    mixpanel.track("Card Flipped"); // mixpanel
+    mixpanel.track("Card Flipped", { taskName: $('.flipcard-container').find('.back').text() }); // mixpanel
     $('section.card-container').find('#card').toggleClass('flipped');
   });
 
@@ -94,14 +94,12 @@ jQuery(function ($) {
     // Sends the timing hit to Google Analytics.
     gtag('send', 'timing', 'Asset Dependencies', 'load', timeSincePageLoad);
 
-    mixpanel.track("Time Since Page Load", {timeSincePageLoad: timeSincePageLoad}); // mixpanel
+    mixpanel.track("Time Since Page Load", {timeSincePageLoad: timeSincePageLoad + ' ms'}); // mixpanel
   }
 
   // Track places link clicks in MixPanel
   $('.to-do-in-cbe ul li').on('click', 'a', function(e) {
-    mixpanel.track("Places Link Clicked", {
-      place: $(e.currentTarget).attr('data-val')
-    });
+    mixpanel.track("Places Link Clicked", { place: $(e.currentTarget).attr('data-val') });
   });
 
   // Track repo link clicks in MixPanel
