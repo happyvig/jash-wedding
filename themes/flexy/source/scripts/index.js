@@ -93,7 +93,14 @@ jQuery(function ($) {
 
     // Sends the timing hit to Google Analytics.
     gtag('send', 'timing', 'Asset Dependencies', 'load', timeSincePageLoad);
+
+    mixpanel.track("Time Since Page Load", {timeSincePageLoad: timeSincePageLoad}); // mixpanel
   }
+
+  // Track repo link clicks
+  $('#repo-link').on('click', function(){
+    mixpanel.track("Repo Link Clicked"); // mixpanel
+  })
 
 });
 
