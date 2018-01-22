@@ -7,11 +7,14 @@
 // Special font for title names in the page header
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');    // font-family: 'Cabin Sketch', cursive;
 
-// Special font for 'are getting married' text in the page header
+// Special font for 'are getting married / are happily married' text in the page header
 @import url('https://fonts.googleapis.com/css?family=Life+Savers');     // font-family: 'Life Savers', cursive;
 
 // Page content font
 @import url('https://fonts.googleapis.com/css?family=Pangolin');        // font-family: 'Pangolin', cursive;
+
+// Special font for 'you are invited' text in the page header
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash'); // font-family: 'Berkshire Swash', cursive;
 
 
 // FLIP CARD CSS
@@ -453,10 +456,17 @@ header
     position relative
     z-index 2
   p.getting-married-text
-    position: relative; 
-    font-size: 100%;
-    font-family: 'Life Savers', cursive;
-    font-size: 2.62rem !important
+    position relative;
+    font-size 100%
+    font-family 'Life Savers', cursive
+    font-size 2.62rem !important
+  p.you-are-invited-text
+    position relative
+    font-size 100%
+    font-family 'Berkshire Swash', cursive
+    font-size 2.8rem !important
+    margin-top 30px
+    color $primary-text-color
   h1 
     margin-top: -55px
   // Link styling

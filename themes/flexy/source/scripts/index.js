@@ -9,7 +9,7 @@
 
 jQuery(function ($) {
 
-  // Start count down clock
+  // Init count down clock
   var today = new Date();
   var marriageDate = new Date('2018', '01', '26', '06', '30', '00');
   var diffInSecs = (marriageDate - today)/1000;
@@ -19,15 +19,16 @@ jQuery(function ($) {
     autoStart: false,
     showSeconds: false,
     callbacks: {
-      stop: function () {}
+      stop: function () {
+        $('.getting-married-text').text('are happily married :)')
+      }
     }
   });
-  clock.setTime(diffInSecs);
+  clock.setTime(diffInSecs > 0 ? diffInSecs : 0);
   clock.setCountdown(true);
   clock.start();
 
-
-  // Init pictures carousel
+  // Init pictures carouse
   $('.slider').bxSlider({
     mode: 'fade',
     captions: false,
