@@ -24,7 +24,43 @@ mixpanel.init("86087803caecfad8030692e62298b12a");
 
 jQuery(function ($) {
 
-  // Mocking HTML5 LocalStorage as a DataStore
+  var USER_ID = null;
+
+  /**
+   *  ================  FIREBASE CONFIG AND METHODS  ======================
+   */
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCgiwMGNFHLWphBoBBG7E-5dll0XgiJCD8",
+    authDomain: "jash-wedding.firebaseapp.com",
+    databaseURL: "https://jash-wedding.firebaseio.com",
+    projectId: "jash-wedding",
+    storageBucket: "jash-wedding.appspot.com",
+    messagingSenderId: "860934339609"
+  };
+  firebase.initializeApp(config);
+
+  // Database Instance
+  var database = firebase.database();
+
+  // Change mode to 'dev' when debugging 
+  var MODE = 'prod'; 
+
+  var databasePath = MODE + '-rsvps' + '/';
+
+  function writeUserData(name, contact, comment) {
+    firebase.database().ref(databasePath + USER_ID).set({ name: name, contact: contact, comment: comment });
+  }
+
+  function readUserData(userId) {
+    var userRsvpRef = firebase.database().ref('rsvps/' + userId);
+    userRsvpRef.on('value', function(snapshot) {
+      console.log('Data from firebase - ', userId, ' ---> ', snapshot.val());
+    });
+  }
+
+  // HTML5 LocalStorage for flags
   var dataStore = {
     localStorage: window.localStorage,
     getItem: function(tag) {
@@ -37,14 +73,32 @@ jQuery(function ($) {
     }
   }
 
-  // Check if already visited user?
-  var userId = dataStore.getItem('USER_ID');
-  if(!userId) {
-    dataStore.setItem('USER_ID', new Date().getTime());
+  // Check if already authenticated user?
+  USER_ID = dataStore.getItem('USER_ID');
+  if(!USER_ID) {
+
+    //  Authenticate anonymously if not already visited
+    firebase.auth().signInAnonymously().catch(function(err) { console.log('Error (' + err.code + ') : ', err.message); });
+
   } else {
     $('.notification').fadeIn('slow');
     setTimeout(function(){ $('.notification').fadeOut('slow');}, 5000);
   }
+
+  // Update localStorage when auth is success
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) { // User is signed in.
+      var isAnonymous = user.isAnonymous;
+      USER_ID = user.uid;
+      dataStore.setItem('USER_ID', USER_ID);
+    } else { // User is signed out.
+    }
+  });
+
+
+  /**
+  *  =================  UI EVENTS  ===================
+  */
 
   // Delayed item load
   setTimeout(function() {
@@ -52,14 +106,14 @@ jQuery(function ($) {
     $('.invitation-text').css({ 'display': 'inline-block' });
   }, 3500)
 
-  // RSVP MODAL OPEN
+  // RSVP Modal Open
   $('[data-popup-open]').on('click', function (e) {
     var targeted_popup_class = jQuery(this).attr('data-popup-open');
     $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
     e.preventDefault();
   });
 
-  // RSVP MODAL CLOSE
+  // RSVP Modal Close
   $('[data-popup-close]').on('click', function (e) {
     var targeted_popup_class = jQuery(this).attr('data-popup-close');
     $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
@@ -68,9 +122,9 @@ jQuery(function ($) {
 
   var isSubmitClicked = false;
 
+  // RSVP'ed already ?
   var alreadyRsvped = Boolean(+dataStore.getItem('RSVP'));
   if(alreadyRsvped) {
-    // $('.rsvp').remove();
     $('.rsvp').html('').text('Thanks for RSVP\'ing !!');
   }
 
@@ -94,20 +148,25 @@ jQuery(function ($) {
     if(!isSubmitClicked || ($name.val().length === 0)) 
       return;
 
-    // send
+    // send & track
     mixpanel.track("RSVP", { 'Name': $name.val(), 'Phone': $phone.val() || '-------', 'Comment': $comment.val() || '---------' });
     dataStore.setItem('RSVP', '1');
+
+    // Write to Firebase
+    writeUserData($name.val(), $phone.val() || '', $comment.val() || '');
 
     // update ui
     $this.val('Thanks for coming !!').css({ 'background': '#80c376', color: '#fff' });
 
     setTimeout(function(){
+     
       // clear & collapse
       $('.popup-close').trigger('click');
       $name.val(''); $phone.val(''); $comment.val('');
       $('#rsvp-submit').val('Submit').css({ 'background': '#ccc', color: '#000' });
       isSubmitClicked = false;
       $('.rsvp').html('').text('Thanks for RSVP\'ing !!');
+
     }, 2000);
   })
 
@@ -169,7 +228,7 @@ jQuery(function ($) {
 
   // Card flipper
   $('section.card-container').on('click', function () {
-    gtag('send', 'flipcard-flipped'); // google analytics
+    gtag('send', 'event', 'Flipcard flipped', 'flip', 'flipcard-flipped'); // google analytics
     mixpanel.track("Card Flipped", { taskName: $('.flipcard-container').find('.back').text() }); // mixpanel
     $('section.card-container').find('#card').toggleClass('flipped');
   });
@@ -177,14 +236,14 @@ jQuery(function ($) {
   // Begin heart beat after page load
   setTimeout(function () {
     $('.heart-pic').removeClass('fadeInUp').addClass('beat');
-  }, 5000);
+  }, 4000);
 
   if (window.performance) {
     // Gets the number of milliseconds since page load (and rounds the result since the value must be an integer).
     var timeSincePageLoad = Math.round(performance.now());
 
     // Sends the timing hit to Google Analytics.
-    gtag('send', 'timing', 'Asset Dependencies', 'load', timeSincePageLoad);
+    gtag('send', 'event', 'Asset Dependencies', 'load', timeSincePageLoad);
 
     // Log pageview with load time in MixPanel
     mixpanel.track("Page View", { timeSincePageLoad: timeSincePageLoad + ' ms' });
