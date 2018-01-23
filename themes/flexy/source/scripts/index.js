@@ -24,6 +24,29 @@ mixpanel.init("86087803caecfad8030692e62298b12a");
 
 jQuery(function ($) {
 
+  var alreadyRsvped = false;
+
+  // Mocking HTML5 LocalStorage as a DataStore
+  var dataStore = {
+    localStorage: window.localStorage,
+    getItem: function(tag) {
+      if(this.localStorage) 
+        return localStorage.getItem(tag);
+    },
+    setItem: function(tag, val){
+      if(this.localStorage)
+        localStorage.setItem(tag, val);
+    }
+  }
+
+  // Check if already visited user?
+  userId = dataStore.getItem('USER_ID');
+  alreadyRsvped = userId && Boolean(+dataStore.getItem('RSVP'));
+  if(!userId) {
+    dataStore.setItem('USER_ID', new Date().getTime());
+  }
+
+  // Delayed item load
   setTimeout(function() {
     $('.flip-clock, .invitation-text, .rsvp').fadeIn('slow');
     $('.invitation-text').css({ 'display': 'inline-block' });
@@ -45,13 +68,19 @@ jQuery(function ($) {
 
   var isSubmitClicked = false;
 
-  // RSVP submit
+  if(alreadyRsvped) {
+    // $('.rsvp').remove();
+    $('.rsvp').html('').text('Thanks for RSVP\'ing !!');
+  }
+
+  // RSVP submit button
   $('#rsvp-submit').click(function (e) {
     e.preventDefault();
     isSubmitClicked = true;
     $('#rsvp-form').submit();
   });
 
+  // RSVP form submit
   $('#rsvp-form').submit(function(e) {
     e.preventDefault();
 
@@ -66,7 +95,9 @@ jQuery(function ($) {
 
     // send
     mixpanel.track("RSVP", { 'Name': $name.val(), 'Phone': $phone.val() || '-------', 'Comment': $comment.val() || '---------' });
+    dataStore.setItem('RSVP', '1');
 
+    // update ui
     $this.val('Thanks for coming !!').css({ 'background': '#80c376', color: '#fff' });
 
     setTimeout(function(){
@@ -75,6 +106,7 @@ jQuery(function ($) {
       $name.val(''); $phone.val(''); $comment.val('');
       $('#rsvp-submit').val('Submit').css({ 'background': '#ccc', color: '#000' });
       isSubmitClicked = false;
+      $('.rsvp').html('').text('Thanks for RSVP\'ing !!');
     }, 2000);
   })
 
@@ -89,7 +121,8 @@ jQuery(function ($) {
     showSeconds: false,
     callbacks: {
       stop: function () {
-        $('.getting-married-text').text('are happily married :)')
+        $('.getting-married-text').text('are happily married :)');
+        $('.rsvp').hide();
       }
     }
   });
@@ -145,11 +178,8 @@ jQuery(function ($) {
     $('.heart-pic').removeClass('fadeInUp').addClass('beat');
   }, 5000);
 
-  // Reference: https://developers.google.com/analytics/devguides/collection/analyticsjs/user-timings
-  // Feature detects Navigation Timing API support.
   if (window.performance) {
-    // Gets the number of milliseconds since page load
-    // (and rounds the result since the value must be an integer).
+    // Gets the number of milliseconds since page load (and rounds the result since the value must be an integer).
     var timeSincePageLoad = Math.round(performance.now());
 
     // Sends the timing hit to Google Analytics.
