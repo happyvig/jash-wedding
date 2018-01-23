@@ -24,8 +24,6 @@ mixpanel.init("86087803caecfad8030692e62298b12a");
 
 jQuery(function ($) {
 
-  var alreadyRsvped = false;
-
   // Mocking HTML5 LocalStorage as a DataStore
   var dataStore = {
     localStorage: window.localStorage,
@@ -40,10 +38,12 @@ jQuery(function ($) {
   }
 
   // Check if already visited user?
-  userId = dataStore.getItem('USER_ID');
-  alreadyRsvped = userId && Boolean(+dataStore.getItem('RSVP'));
+  var userId = dataStore.getItem('USER_ID');
   if(!userId) {
     dataStore.setItem('USER_ID', new Date().getTime());
+  } else {
+    $('.notification').fadeIn('slow');
+    setTimeout(function(){ $('.notification').fadeOut('slow');}, 5000);
   }
 
   // Delayed item load
@@ -68,6 +68,7 @@ jQuery(function ($) {
 
   var isSubmitClicked = false;
 
+  var alreadyRsvped = Boolean(+dataStore.getItem('RSVP'));
   if(alreadyRsvped) {
     // $('.rsvp').remove();
     $('.rsvp').html('').text('Thanks for RSVP\'ing !!');
